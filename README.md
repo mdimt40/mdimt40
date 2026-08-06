@@ -75,25 +75,6 @@ Welcome to the official personal portfolio and GitHub profile repository of **Md
 
 ---
 
-## 💻 Local Setup & Preview
-
-To run this portfolio locally:
-
-```bash
-# Clone the repository
-git clone https://github.com/mdimt40/mdimt40.git
-
-# Navigate to the project directory
-cd mdimt40
-
-# Start a local web server (Python 3)
-python -m http.server 8080
-```
-
-Open `http://localhost:8080` in your web browser.
-
----
-
 ## 📬 Connect with Me
 
 - **Email**: [mdimt40@gmail.com](mailto:mdimt40@gmail.com)
