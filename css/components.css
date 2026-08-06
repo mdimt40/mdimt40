@@ -57,12 +57,12 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.8rem;
   list-style: none;
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   color: var(--text-muted);
   transition: color var(--transition-fast);
@@ -224,7 +224,7 @@
   color: var(--text-muted);
   font-size: 1.1rem;
   line-height: 1.7;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   max-width: 620px;
 }
 
@@ -234,7 +234,7 @@
   gap: 0.5rem;
   color: var(--text-dim);
   font-size: 0.9rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
   font-weight: 500;
 }
 
@@ -243,6 +243,35 @@
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.hero-social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.hero-social-row a {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.hero-social-row a:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
 }
 
 /* Hero Visual / Avatar Card */
@@ -464,7 +493,6 @@
   position: relative;
 }
 
-/* Code Snippet Mockup in Path Visual */
 .code-preview {
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -809,11 +837,7 @@
 }
 
 .cert-caption {
-  padding: 1rem 1.25rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--text-main);
-  text-align: center;
+  padding: 1.1rem 1.25rem;
 }
 
 /* Lightbox Modal */
@@ -855,6 +879,7 @@
   font-family: var(--font-heading);
   font-size: 1.2rem;
   color: var(--text-main);
+  text-align: center;
 }
 
 .lightbox-close {
@@ -992,7 +1017,120 @@
   font-weight: 600;
 }
 
-/* 8. Contact & Footer */
+/* 8. Dedicated Social Connect Section */
+.socials-section {
+  padding: 6rem 0;
+}
+
+.socials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.social-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  transition: all var(--transition-normal);
+}
+
+.social-info {
+  flex-grow: 1;
+}
+
+.social-platform {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-main);
+
+}
+
+.social-handle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.social-arrow {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  transition: all var(--transition-fast);
+}
+
+.social-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.social-card:hover .social-arrow {
+  color: var(--accent-cyan);
+  transform: translate(3px, -3px);
+}
+
+/* Brand Accent Color Hover Effects */
+.social-card.github:hover { border-color: #f0f6fc; }
+.social-card.github:hover .social-icon { background: #24292e; color: #fff; }
+
+.social-card.linkedin:hover { border-color: #0a66c2; }
+.social-card.linkedin:hover .social-icon { background: #0a66c2; color: #fff; }
+
+.social-card.youtube:hover { border-color: #ff0000; }
+.social-card.youtube:hover .social-icon { background: #ff0000; color: #fff; }
+
+.social-card.facebook:hover { border-color: #1877f2; }
+.social-card.facebook:hover .social-icon { background: #1877f2; color: #fff; }
+
+.social-card.instagram:hover { border-color: #e4405f; }
+.social-card.instagram:hover .social-icon { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+
+.social-card.twitter:hover { border-color: #1da1f2; }
+.social-card.twitter:hover .social-icon { background: #000000; color: #fff; }
+
+.social-card.behance:hover { border-color: #1769ff; }
+.social-card.behance:hover .social-icon { background: #1769ff; color: #fff; }
+
+.social-card.leetcode:hover { border-color: #ffa116; }
+.social-card.leetcode:hover .social-icon { background: #ffa116; color: #fff; }
+
+.social-card.beecrowd:hover { border-color: #38bdf8; }
+.social-card.beecrowd:hover .social-icon { background: #0284c7; color: #fff; }
+
+.social-card.telegram:hover { border-color: #229ed9; }
+.social-card.telegram:hover .social-icon { background: #229ed9; color: #fff; }
+
+.social-card.whatsapp:hover { border-color: #25d366; }
+.social-card.whatsapp:hover .social-icon { background: #25d366; color: #fff; }
+
+.social-card.reddit:hover { border-color: #ff4500; }
+.social-card.reddit:hover .social-icon { background: #ff4500; color: #fff; }
+
+.social-card.pinterest:hover { border-color: #bd081c; }
+.social-card.pinterest:hover .social-icon { background: #bd081c; color: #fff; }
+
+/* 9. Contact & Footer */
 .contact-section {
   padding: 6rem 0 4rem 0;
 }
@@ -1090,6 +1228,32 @@
   text-align: center;
   color: var(--text-dim);
   font-size: 0.9rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.footer-socials a:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  transform: translateY(-3px);
 }
 
 /* Toast Feedback */
