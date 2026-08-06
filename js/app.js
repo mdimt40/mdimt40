@@ -84,25 +84,30 @@ function initMobileNav() {
   const nav = document.getElementById("navLinks");
   if (!toggle || !nav) return;
 
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
+  function toggleMenu(open) {
+    const isActive = open !== undefined ? open : !nav.classList.contains("active");
+    nav.classList.toggle("active", isActive);
+    document.body.classList.toggle("menu-open", isActive);
+
     const icon = toggle.querySelector("i");
     if (icon) {
-      icon.classList.toggle("fa-bars");
-      icon.classList.toggle("fa-times");
+      icon.classList.toggle("fa-bars", !isActive);
+      icon.classList.toggle("fa-times", isActive);
     }
-  });
+  }
+
+  toggle.addEventListener("click", () => toggleMenu());
 
   // Close nav on click link
   nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("active");
-      const icon = toggle.querySelector("i");
-      if (icon) {
-        icon.classList.add("fa-bars");
-        icon.classList.remove("fa-times");
-      }
-    });
+    link.addEventListener("click", () => toggleMenu(false));
+  });
+
+  // Close nav on backdrop click
+  document.addEventListener("click", (e) => {
+    if (nav.classList.contains("active") && !nav.contains(e.target) && !toggle.contains(e.target)) {
+      toggleMenu(false);
+    }
   });
 }
 
