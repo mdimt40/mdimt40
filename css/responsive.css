@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Responsive Stylesheet - Md Imtiaz Portfolio
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .hero-avatar-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .path-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: rgba(10, 15, 30, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    transition: right var(--transition-normal);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 90;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .mobile-toggle {
+    display: block;
+    z-index: 100;
+  }
+
+  .hero-name {
+    font-size: 2.6rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* Timeline adjustment for mobile */
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 0;
+    text-align: left !important;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+
+  .timeline-dot {
+    left: 10px !important;
+    right: auto !important;
+  }
+
+  .lightbox-nav.prev { left: 10px; }
+  .lightbox-nav.next { right: 10px; }
+}
+
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: 2.1rem;
+  }
+
+  .path-tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .path-tab-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+}

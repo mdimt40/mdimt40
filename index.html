@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md Imtiaz | Software Engineer, WordPress & UI/UX Developer</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Md Imtiaz - Software Engineering student at DIU, WordPress Developer, UI/UX Designer, and emerging Frontend Developer & Data Scientist based in Dhaka, Bangladesh.">
+  <meta name="keywords" content="Md Imtiaz, Software Engineer, WordPress Developer, UI/UX Designer, Frontend Developer, Data Science, DIU, Dhaka Bangladesh">
+  <meta name="author" content="Md Imtiaz">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom CSS Styles -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrapper">
+      <a href="#hero" class="brand-logo">
+        <i class="fas fa-terminal" style="color: var(--accent-cyan);"></i>
+        Imtiaz<span class="dot">.</span>
+        <span class="brand-badge">SWE '25</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#career-paths" class="nav-link">Focus Paths</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#certificates" class="nav-link">Certificates</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#contact" class="btn btn-primary btn-sm">Let's Talk</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-pulse"></span>
+            Open for Collaboration
+          </div>
+
+          <h1 class="hero-name">Hi, I'm <span class="gradient-text">Md Imtiaz</span></h1>
+
+          <div class="hero-title-typing">
+            <span>Building as</span>
+            <span id="typingTarget"></span>
+            <span class="typing-cursor"></span>
+          </div>
+
+          <p class="hero-bio">
+            A passionate Software Engineering student at <strong>Daffodil International University (DIU)</strong> with high proficiency in WordPress development, graphic design, and UI/UX architecture. Bridging user experience design with high-performance code.
+          </p>
+
+          <div class="location-tag">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-cyan);"></i>
+            Mirpur, Dhaka, Bangladesh &nbsp;|&nbsp; B.Sc. in Software Engineering (DIU)
+          </div>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-rocket"></i> View Projects
+            </a>
+            <button onclick="copyEmail()" class="btn btn-outline">
+              <i class="far fa-envelope"></i> Copy Email
+            </button>
+            <a href="tel:+8801937807440" class="btn btn-outline">
+              <i class="fas fa-phone-alt"></i> Call Direct
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Avatar Showcase Card -->
+        <div class="hero-avatar-card">
+          <div class="avatar-graphic">
+            <img src="image.jpg" alt="Md Imtiaz - Software Engineer" class="avatar-img">
+            <div class="avatar-overlay-gradient"></div>
+            <div class="avatar-info-box">
+              <div class="avatar-info-name">Md Imtiaz</div>
+              <div class="avatar-info-inst">DIU Software Engineering</div>
+            </div>
+          </div>
+
+          <!-- Floating Badge Highlights -->
+          <div class="float-badge badge-top-right">
+            <i class="fab fa-wordpress"></i>
+            <span>WordPress 95%</span>
+          </div>
+          <div class="float-badge badge-bottom-left">
+            <i class="fab fa-figma"></i>
+            <span>UI/UX 90%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== DUAL CAREER PATH SPOTLIGHT ==================== -->
+    <section class="path-section" id="career-paths">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Dual Focus Roadmap</span>
+          <h2 class="section-title">My Learning <span class="gradient-text">Vectors</span></h2>
+          <p class="section-desc">
+            Combining data-driven intelligence with modern interactive frontend engineering.
+          </p>
+        </div>
+
+        <div class="path-switcher-container">
+          <div class="path-tabs">
+            <button class="path-tab-btn active" data-path="frontend">
+              <i class="fas fa-laptop-code"></i> Path 1: Modern Frontend Focus
+            </button>
+            <button class="path-tab-btn" data-path="data">
+              <i class="fas fa-brain"></i> Path 2: Data Science & AI Focus
+            </button>
+          </div>
+        </div>
+
+        <!-- Path 1: Frontend Focus Card -->
+        <div class="path-card active" id="path-frontend">
+          <div class="path-content">
+            <h3 class="path-content-title">Modern Web Architecture</h3>
+            <p class="path-content-desc">
+              Transitioning toward cutting-edge frontend ecosystems to construct scalable, pixel-perfect, high-performance web applications.
+            </p>
+            <ul class="path-feature-list">
+              <li class="path-feature-item"><i class="fas fa-check-circle"></i> React.js & Next.js Ecosystem Mastery (Learning Phase 40%)</li>
+              <li class="path-feature-item"><i class="fas fa-check-circle"></i> Tailored UI/UX & Responsive Web Layouts (80%+)</li>
+              <li class="path-feature-item"><i class="fas fa-check-circle"></i> Tailored Design Systems with Tailwind CSS & ES6 JavaScript</li>
+            </ul>
+            <div class="path-tech-pills">
+              <span class="tech-pill">React.js</span>
+              <span class="tech-pill">Next.js</span>
+              <span class="tech-pill">JavaScript ES6+</span>
+              <span class="tech-pill">Tailwind CSS</span>
+              <span class="tech-pill">DOM API</span>
+            </div>
+          </div>
+          <div class="path-visual-box">
+            <div class="code-preview">
+              <span class="code-comment">// Modern React Component Architecture</span><br>
+              <span class="code-keyword">import</span> { useState } <span class="code-keyword">from</span> <span class="code-string">'react'</span>;<br><br>
+              <span class="code-keyword">export default function</span> <span class="code-func">DeveloperProfile</span>() {<br>
+              &nbsp;&nbsp;<span class="code-keyword">const</span> [tech, setTech] = <span class="code-func">useState</span>(<span class="code-string">'Next.js'</span>);<br>
+              &nbsp;&nbsp;<span class="code-keyword">return</span> (<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">div</span> className=<span class="code-string">"hero-glow"</span>&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">h1</span>&gt;Building with {tech}&lt;/<span class="code-keyword">h1</span>&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="code-keyword">div</span>&gt;<br>
+              &nbsp;&nbsp;);<br>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Path 2: Data Focus Card -->
+        <div class="path-card" id="path-data">
+          <div class="path-content">
+            <h3 class="path-content-title">Data Science & Insights</h3>
+            <p class="path-content-desc">
+              Expanding into data analysis, machine learning algorithms, and Python automation to uncover patterns and engineer intelligent data-driven solutions.
+            </p>
+            <ul class="path-feature-list">
+              <li class="path-feature-item"><i class="fas fa-check-circle"></i> Python Programming & Scripting Foundations</li>
+              <li class="path-feature-item"><i class="fas fa-check-circle"></i> Telegram Bot API & Automated Data Parsing</li>
+              <li class="path-feature-item"><i class="fas fa-check-circle"></i> Machine Learning Concepts & Data Analytics</li>
+            </ul>
+            <div class="path-tech-pills">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Data Analysis</span>
+              <span class="tech-pill">Machine Learning</span>
+              <span class="tech-pill">Telegram API</span>
+              <span class="tech-pill">C Language</span>
+            </div>
+          </div>
+          <div class="path-visual-box">
+            <div class="code-preview">
+              <span class="code-comment"># Python Data Pipeline & Bot Handler</span><br>
+              <span class="code-keyword">import</span> asyncio<br>
+              <span class="code-keyword">from</span> telegram.ext <span class="code-keyword">import</span> Application<br><br>
+              <span class="code-keyword">async def</span> <span class="code-func">fetch_results</span>(student_id):<br>
+              &nbsp;&nbsp;data = <span class="code-keyword">await</span> parse_university_data(student_id)<br>
+              &nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">f"GPA: {data['gpa']}"</span><br><br>
+              print(<span class="code-string">"Data engine initialized..."</span>)
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==================== SKILLS & PROFICIENCY MATRIX ==================== -->
+    <section class="skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Technical Competencies</span>
+          <h2 class="section-title">Skills & <span class="gradient-text">Proficiency</span></h2>
+          <p class="section-desc">
+            Empirical breakdown of technical abilities across design, CMS, web development, and programming.
+          </p>
+        </div>
+
+        <div class="skills-filter">
+          <button class="skill-cat-btn active" data-skill-cat="all">All Skills</button>
+          <button class="skill-cat-btn" data-skill-cat="cms-design">CMS & Design</button>
+          <button class="skill-cat-btn" data-skill-cat="frontend">Web & Frontend</button>
+          <button class="skill-cat-btn" data-skill-cat="programming">Programming & Data</button>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- CMS & Design Skills -->
+          <div class="skill-card" data-category="cms-design">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fab fa-wordpress"></i></div>
+                <div class="skill-name">WordPress Dev & Customization</div>
+              </div>
+              <div class="skill-percent">95%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="95%"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="cms-design">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fas fa-palette"></i></div>
+                <div class="skill-name">UI/UX & Graphic Design</div>
+              </div>
+              <div class="skill-percent">90%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="90%"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="cms-design">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fas fa-bezier-curve"></i></div>
+                <div class="skill-name">Adobe Illustrator</div>
+              </div>
+              <div class="skill-percent">88%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="88%"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="cms-design">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fab fa-figma"></i></div>
+                <div class="skill-name">Figma UI/UX Design</div>
+              </div>
+              <div class="skill-percent">85%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="85%"></div>
+            </div>
+          </div>
+
+          <!-- Web & Frontend Skills -->
+          <div class="skill-card" data-category="frontend">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fab fa-js-square"></i></div>
+                <div class="skill-name">HTML5, CSS3 & JS (ES6+)</div>
+              </div>
+              <div class="skill-percent">85%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="85%"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="frontend">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="skill-name">Responsive Web Design</div>
+              </div>
+              <div class="skill-percent">80%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="80%"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="frontend">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fab fa-react"></i></div>
+                <div class="skill-name">React & Next.js Ecosystem</div>
+              </div>
+              <div class="skill-percent">40%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="40%"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="frontend">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fab fa-php"></i></div>
+                <div class="skill-name">PHP & Tailwind CSS</div>
+              </div>
+              <div class="skill-percent">75%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="75%"></div>
+            </div>
+          </div>
+
+          <!-- Programming & Data Skills -->
+          <div class="skill-card" data-category="programming">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fas fa-code"></i></div>
+                <div class="skill-name">C Programming</div>
+              </div>
+              <div class="skill-percent">30%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="30%"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="programming">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fab fa-python"></i></div>
+                <div class="skill-name">Python & Telegram API</div>
+              </div>
+              <div class="skill-percent">25%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="25%"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== PROJECTS SHOWCASE ==================== -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Portfolio Work</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+          <p class="section-desc">
+            A collection of web applications, WordPress platforms, automation bots, and UI design projects.
+          </p>
+        </div>
+
+        <div class="project-filters">
+          <button class="project-filter-btn active" data-filter="all">All Projects</button>
+          <button class="project-filter-btn" data-filter="web">Web Apps</button>
+          <button class="project-filter-btn" data-filter="wordpress">WordPress</button>
+          <button class="project-filter-btn" data-filter="bot">Python & Bot</button>
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+
+    <!-- ==================== CERTIFICATES GALLERY ==================== -->
+    <section class="cert-section" id="certificates">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Credentials</span>
+          <h2 class="section-title">Certificates & <span class="gradient-text">Achievements</span></h2>
+          <p class="section-desc">
+            Explore verified certificates and academic achievements (supporting certificate0.jpg to certificate6.jpg).
+          </p>
+        </div>
+
+        <!-- Certificates Grid Container -->
+        <div class="cert-grid" id="certGrid"></div>
+      </div>
+    </section>
+
+
+    <!-- ==================== EDUCATION & JOURNEY TIMELINE ==================== -->
+    <section class="timeline-section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Academic Path</span>
+          <h2 class="section-title">Education & <span class="gradient-text">Milestones</span></h2>
+          <p class="section-desc">
+            My academic journey in Software Engineering and foundational education in Bangladesh.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <!-- Item 1: DIU -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-year">2025 - Present</div>
+              <div class="timeline-degree">B.Sc. in Software Engineering</div>
+              <div class="timeline-inst">Daffodil International University (DIU)</div>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                Focusing on core software architecture, data structures, algorithms, web systems, and modern software engineering practices.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: HSC -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-year">2023 - 2024</div>
+              <div class="timeline-degree">Higher Secondary Certificate (HSC)</div>
+              <div class="timeline-inst">Govt Janata College</div>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                Completed higher secondary studies with a strong foundation in science, mathematics, and logic.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: SSC -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-year">2017 - 2022</div>
+              <div class="timeline-degree">Secondary School Certificate (SSC)</div>
+              <div class="timeline-inst">Dumki A.K Model High School</div>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                Foundational school education, early engagement in computer technology and graphic design.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== CONTACT & FOOTER ==================== -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Get In Touch</span>
+          <h2 class="section-title">Let's Build <span class="gradient-text">Together</span></h2>
+          <p class="section-desc">
+            Open for software engineering opportunities, WordPress projects, UI/UX collaborations, and technical discussions.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Card -->
+          <div class="contact-info-card">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="far fa-envelope"></i></div>
+              <div>
+                <div class="contact-label">Email Address</div>
+                <div class="contact-value">
+                  <a href="mailto:mdimt40@gmail.com">mdimt40@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+              <div>
+                <div class="contact-label">Phone Direct</div>
+                <div class="contact-value">
+                  <a href="tel:+8801937807440">+880 1937-807440</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <div class="contact-label">Current Location</div>
+                <div class="contact-value">Mirpur, Dhaka, Bangladesh</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-user-check"></i></div>
+              <div>
+                <div class="contact-label">Status</div>
+                <div class="contact-value" style="color: var(--accent-emerald);">Open for Collaboration</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form Card -->
+          <div class="contact-form-card">
+            <form id="contactForm">
+              <div class="form-group">
+                <label class="form-label" for="contactName">Your Name</label>
+                <input type="text" id="contactName" class="form-input" placeholder="e.g. Alex Johnson" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactEmail">Your Email</label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="name@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactMsg">Message</label>
+                <textarea id="contactMsg" class="form-textarea" rows="4" placeholder="How can we collaborate on your project?" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="far fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== SITE FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Md Imtiaz. Designed & Engineered with passion in Dhaka, Bangladesh.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== PROJECT DETAILS MODAL ==================== -->
+  <div class="lightbox-modal" id="projectModal" onclick="if(event.target===this) closeProjectModal()">
+    <div class="lightbox-content" style="background: var(--bg-dark); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--border-glass); max-width: 550px; width: 90%;">
+      <span class="lightbox-close" onclick="closeProjectModal()">&times;</span>
+      <div id="projectModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ==================== CERTIFICATE LIGHTBOX MODAL ==================== -->
+  <div class="lightbox-modal" id="certLightbox" onclick="if(event.target===this) closeLightbox()">
+    <div class="lightbox-content">
+      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <button class="lightbox-nav prev" onclick="navigateLightbox(-1)" aria-label="Previous Certificate">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <img src="" id="lightboxImg" class="lightbox-img" alt="Certificate Preview">
+      <button class="lightbox-nav next" onclick="navigateLightbox(1)" aria-label="Next Certificate">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="lightbox-title" id="lightboxTitle"></div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div class="toast-msg" id="toastMsg">Notification message</div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/projects.js"></script>
+  <script src="js/certificates.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
