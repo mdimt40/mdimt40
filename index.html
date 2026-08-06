@@ -54,7 +54,7 @@
         "url": "https://mdimt40.github.io/",
         "image": "https://mdimt40.github.io/image.jpg",
         "jobTitle": ["Software Engineer", "WordPress Developer", "UI/UX Designer", "Frontend Developer", "Data Science Aspirant"],
-        "knowsAbout": ["Software Engineering", "WordPress Development", "UI/UX Design", "React.js", "Next.js", "Python", "Data Analysis", "Telegram API", "HTML5", "CSS3", "JavaScript"],
+        "knowsAbout": ["Software Engineering", "Java Programming", "Object-Oriented Programming (OOP)", "WordPress Development", "UI/UX Design", "React.js", "Next.js", "Python", "Data Analysis", "Telegram API", "HTML5", "CSS3", "JavaScript"],
         "worksFor": {
           "@type": "Organization",
           "name": "Daffodil International University"
@@ -101,29 +101,37 @@
 </head>
 <body>
 
-  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <!-- ==================== HEADER / FLOATING NAVIGATION ==================== -->
   <header class="site-header" id="siteHeader">
-    <div class="container nav-wrapper">
+    <div class="nav-container">
       <a href="#hero" class="brand-logo">
-        <i class="fas fa-terminal" style="color: var(--accent-cyan);"></i>
-        Imtiaz<span class="dot">.</span>
+        <div class="logo-icon-box">
+          <i class="fas fa-terminal"></i>
+        </div>
+        <span class="brand-text">Imtiaz<span class="brand-dot">.</span></span>
+        <span class="brand-status-tag">DEV</span>
       </a>
 
-      <nav>
+      <nav class="nav-menu">
         <ul class="nav-links" id="navLinks">
-          <li><a href="#hero" class="nav-link active">Home</a></li>
-          <li><a href="#career-paths" class="nav-link">Focus Paths</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#certificates" class="nav-link">Certificates</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#socials" class="nav-link">Socials</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#hero" class="nav-link active"><i class="fas fa-home nav-icon"></i> Home</a></li>
+          <li><a href="#career-paths" class="nav-link"><i class="fas fa-compass nav-icon"></i> Focus</a></li>
+          <li><a href="#skills" class="nav-link"><i class="fas fa-layer-group nav-icon"></i> Skills</a></li>
+          <li><a href="#projects" class="nav-link"><i class="fas fa-code-branch nav-icon"></i> Projects</a></li>
+          <li><a href="#certificates" class="nav-link"><i class="fas fa-award nav-icon"></i> Credentials</a></li>
+          <li><a href="#socials" class="nav-link"><i class="fas fa-share-alt nav-icon"></i> Socials</a></li>
+          <li><a href="#contact" class="nav-link"><i class="fas fa-paper-plane nav-icon"></i> Contact</a></li>
         </ul>
       </nav>
 
-      <div class="header-cta">
-        <a href="#contact" class="btn btn-primary btn-sm">Let's Talk</a>
+      <div class="header-actions">
+        <a href="CV_Md_Imtiaz.pdf" target="_blank" download class="nav-cv-btn" title="Download CV / Resume">
+          <i class="fas fa-file-pdf"></i> CV
+        </a>
+        <a href="#contact" class="nav-cta-btn">
+          <span>Let's Talk</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
           <i class="fas fa-bars"></i>
         </button>
@@ -153,20 +161,23 @@
             A passionate Software Engineering student at <strong>Daffodil International University (DIU)</strong> with high proficiency in WordPress development, graphic design, and UI/UX architecture. Bridging user experience design with high-performance code.
           </p>
 
-          <div class="location-tag">
-            <i class="fas fa-map-marker-alt" style="color: var(--accent-cyan);"></i>
-            Mirpur, Dhaka, Bangladesh &nbsp;|&nbsp; B.Sc. in Software Engineering (DIU)
+          <div class="hero-meta-row">
+            <span class="meta-pill"><i class="fas fa-map-marker-alt"></i> Mirpur, Dhaka, Bangladesh</span>
+            <span class="meta-pill"><i class="fas fa-graduation-cap"></i> B.Sc. Software Engineering (DIU)</span>
           </div>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">
+            <a href="CV_Md_Imtiaz.pdf" target="_blank" download class="btn btn-primary">
+              <i class="fas fa-file-download"></i> Download CV
+            </a>
+            <a href="#projects" class="btn btn-outline">
               <i class="fas fa-rocket"></i> View Projects
             </a>
-            <button onclick="copyEmail()" class="btn btn-outline">
-              <i class="far fa-envelope"></i> Copy Email
+            <button onclick="copyEmail()" class="hero-quick-btn" title="Copy Email (mdimt40@gmail.com)">
+              <i class="far fa-envelope"></i>
             </button>
-            <a href="tel:+8801937807440" class="btn btn-outline">
-              <i class="fas fa-phone-alt"></i> Call Direct
+            <a href="tel:+8801937807440" class="hero-quick-btn" title="Call Direct (+8801937807440)">
+              <i class="fas fa-phone-alt"></i>
             </a>
           </div>
 
@@ -206,6 +217,30 @@
               <i class="fab fa-figma" style="color: #a855f7;"></i>
               <span>UI/UX 90%</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== STATISTICS COUNTER SECTION ==================== -->
+    <section class="stats-section" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-target="10">0</div>
+            <div class="stat-label">Projects & Platforms</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="1250">0</div>
+            <div class="stat-label">Result Queries Served</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="12">0</div>
+            <div class="stat-label">Credentials & Certificates</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="15">0</div>
+            <div class="stat-label">Tech Stack Tools</div>
           </div>
         </div>
       </div>
@@ -254,18 +289,22 @@
               <span class="tech-pill">DOM API</span>
             </div>
           </div>
-          <div class="path-visual-box">
-            <div class="code-preview">
-              <span class="code-comment">// Modern React Component Architecture</span><br>
-              <span class="code-keyword">import</span> { useState } <span class="code-keyword">from</span> <span class="code-string">'react'</span>;<br><br>
-              <span class="code-keyword">export default function</span> <span class="code-func">DeveloperProfile</span>() {<br>
-              &nbsp;&nbsp;<span class="code-keyword">const</span> [tech, setTech] = <span class="code-func">useState</span>(<span class="code-string">'Next.js'</span>);<br>
-              &nbsp;&nbsp;<span class="code-keyword">return</span> (<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">div</span> className=<span class="code-string">"hero-glow"</span>&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">h1</span>&gt;Building with {tech}&lt;/<span class="code-keyword">h1</span>&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="code-keyword">div</span>&gt;<br>
-              &nbsp;&nbsp;);<br>
-              }
+
+          <!-- Path 1 Premium App Widget -->
+          <div class="glass-widget-card">
+            <div class="widget-header">
+              <span class="widget-status-dot"></span>
+              <span class="widget-label">Currently Building</span>
+            </div>
+            <h4 class="widget-title">Modern Web Experiences</h4>
+            <p class="widget-subtitle">Frontend • WordPress • UI/UX</p>
+            <div class="widget-chips-grid">
+              <span class="widget-chip"><i class="fab fa-react" style="color: #61dafb;"></i> React</span>
+              <span class="widget-chip"><i class="fas fa-bolt" style="color: #ffffff;"></i> Next.js</span>
+              <span class="widget-chip"><i class="fab fa-wordpress" style="color: #38bdf8;"></i> WordPress</span>
+              <span class="widget-chip"><i class="fab fa-js" style="color: #f7df1e;"></i> JavaScript</span>
+              <span class="widget-chip"><i class="fas fa-wind" style="color: #38bdf8;"></i> Tailwind</span>
+              <span class="widget-chip"><i class="fab fa-php" style="color: #777bb4;"></i> PHP</span>
             </div>
           </div>
         </div>
@@ -290,15 +329,22 @@
               <span class="tech-pill">C Language</span>
             </div>
           </div>
-          <div class="path-visual-box">
-            <div class="code-preview">
-              <span class="code-comment"># Python Data Pipeline & Bot Handler</span><br>
-              <span class="code-keyword">import</span> asyncio<br>
-              <span class="code-keyword">from</span> telegram.ext <span class="code-keyword">import</span> Application<br><br>
-              <span class="code-keyword">async def</span> <span class="code-func">fetch_results</span>(student_id):<br>
-              &nbsp;&nbsp;data = <span class="code-keyword">await</span> parse_university_data(student_id)<br>
-              &nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">f"GPA: {data['gpa']}"</span><br><br>
-              print(<span class="code-string">"Data engine initialized..."</span>)
+
+          <!-- Path 2 Premium App Widget -->
+          <div class="glass-widget-card">
+            <div class="widget-header">
+              <span class="widget-status-dot"></span>
+              <span class="widget-label">Currently Exploring</span>
+            </div>
+            <h4 class="widget-title">Data & AI Automation</h4>
+            <p class="widget-subtitle">Python • Data Science • Machine Learning</p>
+            <div class="widget-chips-grid">
+              <span class="widget-chip"><i class="fab fa-java" style="color: #ea580c;"></i> Java (OOP)</span>
+              <span class="widget-chip"><i class="fab fa-python" style="color: #38bdf8;"></i> Python</span>
+              <span class="widget-chip"><i class="fas fa-chart-bar" style="color: #10b981;"></i> Data Analysis</span>
+              <span class="widget-chip"><i class="fas fa-brain" style="color: #a855f7;"></i> Machine Learning</span>
+              <span class="widget-chip"><i class="fab fa-telegram-plane" style="color: #229ed9;"></i> Telegram API</span>
+              <span class="widget-chip"><i class="fas fa-code" style="color: #ec4899;"></i> C Language</span>
             </div>
           </div>
         </div>
@@ -432,7 +478,19 @@
             </div>
           </div>
 
-          <!-- Programming & Data Skills -->
+          <div class="skill-card" data-category="programming">
+            <div class="skill-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="fab fa-java"></i></div>
+                <div class="skill-name">Java & Object-Oriented Programming (OOP)</div>
+              </div>
+              <div class="skill-percent">80%</div>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" data-percent="80%"></div>
+            </div>
+          </div>
+
           <div class="skill-card" data-category="programming">
             <div class="skill-header">
               <div class="skill-info">
@@ -823,7 +881,11 @@
     </div>
   </div>
 
-  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <!-- ==================== TOAST NOTIFICATION & BACK TO TOP ==================== -->
+  <button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
   <div class="toast-msg" id="toastMsg">Notification message</div>
 
   <!-- JavaScript Modules -->

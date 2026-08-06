@@ -45,19 +45,19 @@ Welcome to the official personal portfolio and GitHub profile repository of **Md
 - **Languages & Tools**: JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, DOM API, PHP, WordPress (95% Proficiency)
 - **Design & Prototyping**: UI/UX Architecture, Figma (85%), Adobe Illustrator (88%)
 
-### 2. Data Science & Intelligent Automation
-- **Core Technology**: Python & Scripting
-- **Domains**: Data Analysis, Machine Learning Fundamentals, Telegram Bot API Automation, C Programming
+### 2. Data Science & Software Engineering Foundations
+- **Core Languages & Concepts**: Java & Object-Oriented Programming (OOP) (80% Proficiency), Python & Automation, C Programming
+- **Domains**: Data Analysis, Machine Learning Fundamentals, Telegram Bot API Automation
 
 ---
 
 ## 🛠️ Featured Projects
 
-1. 🎓 **University Result Checker Website**: Centralized academic GPA lookup platform for university students. *(Tech: HTML, CSS, JS)*
-2. 🤖 **University Result Checker Telegram Bot**: Asynchronous messaging bot delivering instant exam result queries via Telegram. *(Tech: Python, Telegram API, Data Parsing)*
+1. 🎓 **University Result Checker Website**: Centralized academic GPA lookup platform for university students. *(Tech: HTML, CSS, JS)* — [Live Demo](https://mdimt40.github.io/DIUinsider/)
+2. 🤖 **University Result Checker Telegram Bot**: Asynchronous messaging bot delivering instant exam result queries via Telegram. *(Tech: Python, Telegram API)* — [Bot Profile](https://t.me/mdimt40)
 3. 📰 **Voice of Patuakhali News Website**: High-performance regional newspaper portal designed for local media. *(Tech: WordPress, PHP, CSS)*
-4. 🏫 **Dumki Upazila Students Association Website**: Digital community portal offering student resources, news, and executive directories. *(Tech: HTML, CSS, JS)*
-5. 🖼️ **Automatic Profile Photo Framer Tool**: Custom HTML5 Canvas tool built for users to apply thematic event frames to photos. *(Tech: HTML, Canvas API, JS)*
+4. 🏫 **Dumki Upazila Students Association Website**: Digital community portal offering student resources, news, and executive directories. *(Tech: HTML, CSS, JS)* — [Live Demo](https://dusa-bd.web.app)
+5. 🖼️ **Automatic Profile Photo Framer Tool**: Custom HTML5 Canvas tool built for users to apply thematic event frames to photos. *(Tech: HTML, Canvas API, JS)* — [Live Demo](https://mdimt40.github.io/vop-photoframe/)
 6. 🎬 **MovieMartBD**: Streamlined movie catalog and media download platform. *(Tech: HTML, CSS, JS)* — [Live Demo](https://moviemartbd.blogspot.com)
 7. 💼 **Personal Developer Portfolio**: Modern glassmorphic web app showcasing projects, skill meters, and interactive certificate lightboxes. *(Tech: HTML, Vanilla CSS, Modern JS)* — [Live Demo](https://mdimtiaz.pages.dev)
 
