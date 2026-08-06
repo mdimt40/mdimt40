@@ -58,8 +58,8 @@ Welcome to the official personal portfolio and GitHub profile repository of **Md
 3. 📰 **Voice of Patuakhali News Website**: High-performance regional newspaper portal designed for local media. *(Tech: WordPress, PHP, CSS)*
 4. 🏫 **Dumki Upazila Students Association Website**: Digital community portal offering student resources, news, and executive directories. *(Tech: HTML, CSS, JS)*
 5. 🖼️ **Automatic Profile Photo Framer Tool**: Custom HTML5 Canvas tool built for users to apply thematic event frames to photos. *(Tech: HTML, Canvas API, JS)*
-6. 🎬 **MovieMartBD**: Streamlined movie catalog and media download platform. *(Tech: HTML, CSS, JS)*
-7. 💼 **Personal Developer Portfolio**: Modern glassmorphic web app showcasing projects, skill meters, and interactive certificate lightboxes. *(Tech: HTML, Vanilla CSS, Modern JS)*
+6. 🎬 **MovieMartBD**: Streamlined movie catalog and media download platform. *(Tech: HTML, CSS, JS)* — [Live Demo](https://moviemartbd.blogspot.com)
+7. 💼 **Personal Developer Portfolio**: Modern glassmorphic web app showcasing projects, skill meters, and interactive certificate lightboxes. *(Tech: HTML, Vanilla CSS, Modern JS)* — [Live Demo](https://mdimtiaz.pages.dev)
 
 ---
 

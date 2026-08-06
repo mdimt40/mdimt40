@@ -60,6 +60,7 @@ const projectsData = [
     category: "web",
     categoryLabel: "Web App",
     image: "projects/mmbd.png",
+    liveUrl: "https://moviemartbd.blogspot.com",
     tech: ["HTML5", "CSS3", "JavaScript"],
     summary: "A sleek, responsive media catalog and streaming reference platform for movie enthusiasts.",
     details: "Clean dark-themed frontend showcasing curated movie trailers, IMDb rating badges, category filters, and fast download links."
@@ -70,6 +71,7 @@ const projectsData = [
     category: "web",
     categoryLabel: "Web App",
     image: "projects/portfolio.png",
+    liveUrl: "https://mdimtiaz.pages.dev",
     tech: ["HTML5", "Vanilla CSS", "Modern ES6 JS"],
     summary: "Custom-crafted portfolio site featuring dual career paths, skill meters, project showcase, and certificate gallery.",
     details: "Designed with glassmorphism, responsive grid system, typing effects, project filter tabs, modal previews, and interactive certificate lightboxes."
@@ -98,8 +100,13 @@ function renderProjects(filter = "all") {
         </div>
         <div class="project-footer">
           <button class="project-details-btn" onclick="openProjectModal('${p.id}')">
-            View Details <i class="fas fa-arrow-right"></i>
+            Details <i class="fas fa-arrow-right"></i>
           </button>
+          ${p.liveUrl ? `
+            <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          ` : ''}
         </div>
       </div>
     </div>
@@ -133,8 +140,13 @@ function openProjectModal(projectId) {
     <div class="project-tech-stack" style="margin-bottom: 2rem;">
       ${project.tech.map(t => `<span class="project-tech-tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">${t}</span>`).join('')}
     </div>
-    <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-      <button class="btn btn-primary btn-sm" onclick="closeProjectModal()">Close Preview</button>
+    <div style="display: flex; gap: 1rem; justify-content: flex-end; align-items: center;">
+      ${project.liveUrl ? `
+        <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <i class="fas fa-external-link-alt"></i> Visit Live Site
+        </a>
+      ` : ''}
+      <button class="btn btn-outline btn-sm" onclick="closeProjectModal()">Close</button>
     </div>
   `;
 
