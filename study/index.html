@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE411 Master Revision Note — বাংলা ব্যাখ্যাসহ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16324f;
+    --navy-deep:#0d1f33;
+    --accent:#2e7d6b;
+    --accent-soft:#e6f2ef;
+    --bangla:#a15c1f;
+    --bangla-soft:#fbf1e4;
+    --paper:#fffdf9;
+    --ink:#1d2530;
+    --ink-soft:#5a6472;
+    --line:#e4ddd0;
+    --grey:#f5f2ea;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.65;
+    font-size:16px;
+  }
+  .bn{
+    font-family:'Hind Siliguri','Inter',sans-serif;
+  }
+  h1,h2,h3,h4{
+    font-family:'Source Serif 4',serif;
+    color:var(--navy-deep);
+    line-height:1.25;
+    margin:0 0 .5em 0;
+  }
+  a{color:var(--accent);}
+
+  /* ---------- Layout shell ---------- */
+  .shell{display:flex; max-width:1320px; margin:0 auto;}
+  nav.toc{
+    width:280px; flex:none; position:sticky; top:0; align-self:flex-start;
+    height:100vh; overflow-y:auto; padding:28px 18px 40px 28px;
+    border-right:1px solid var(--line);
+    background:var(--white);
+  }
+  nav.toc .brand{
+    font-family:'Source Serif 4',serif; font-weight:700; font-size:1.05rem;
+    color:var(--navy-deep); margin-bottom:2px;
+  }
+  nav.toc .brand-sub{ font-size:.78rem; color:var(--ink-soft); margin-bottom:22px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc ol > li{counter-increment:sec; margin-bottom:2px;}
+  nav.toc ol > li > a{
+    display:flex; gap:10px; align-items:baseline;
+    text-decoration:none; color:var(--ink); font-weight:600; font-size:.86rem;
+    padding:8px 10px; border-radius:8px;
+  }
+  nav.toc ol > li > a::before{
+    content:counter(sec);
+    font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--accent);
+    background:var(--accent-soft); width:20px; height:20px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  nav.toc ol > li > a:hover{background:var(--grey);}
+  nav.toc .sub{list-style:none; margin:2px 0 10px 40px; padding:0; border-left:2px solid var(--line);}
+  nav.toc .sub li a{
+    display:block; font-size:.76rem; color:var(--ink-soft); text-decoration:none;
+    padding:4px 0 4px 12px;
+  }
+  nav.toc .sub li a:hover{color:var(--accent);}
+
+  main{flex:1; min-width:0; padding:0 0 80px 0;}
+
+  /* ---------- Cover ---------- */
+  header.cover{
+    padding:64px 64px 48px 64px;
+    background:linear-gradient(155deg, var(--navy-deep) 0%, var(--navy) 62%, var(--accent) 150%);
+    color:#fff;
+  }
+  header.cover .kicker{
+    font-family:'JetBrains Mono',monospace; letter-spacing:.14em; text-transform:uppercase;
+    font-size:.72rem; color:#bcd4cc; margin-bottom:18px;
+  }
+  header.cover h1{
+    color:#fff; font-size:2.5rem; margin-bottom:.25em; max-width:14ch;
+  }
+  header.cover .subtitle{
+    font-size:1.05rem; color:#dfeae6; max-width:60ch; margin-bottom:22px;
+  }
+  header.cover .subtitle.bn{ font-size:1.05rem; color:#f3e9d8; }
+  header.cover .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;}
+  header.cover .pills span{
+    font-size:.76rem; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
+    padding:6px 12px; border-radius:999px;
+  }
+
+  section.topic{padding:56px 64px 8px 64px; border-bottom:1px solid var(--line);}
+  section.topic:last-of-type{border-bottom:none;}
+  .topic-head{
+    display:flex; align-items:flex-start; gap:18px; margin-bottom:6px;
+  }
+  .topic-num{
+    font-family:'JetBrains Mono',monospace; font-size:1.6rem; color:var(--accent);
+    background:var(--accent-soft); width:52px; height:52px; border-radius:14px;
+    display:flex; align-items:center; justify-content:center; flex:none; font-weight:700;
+  }
+  .topic-head h1{font-size:1.9rem; margin-bottom:2px;}
+  .topic-head .eng-tag{ font-family:'Inter',sans-serif; font-weight:600; font-size:.78rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.08em;}
+
+  h2.sub{
+    font-size:1.28rem; color:var(--navy); margin-top:2.4em; padding-bottom:6px;
+    border-bottom:2px solid var(--accent-soft);
+  }
+  h3.subsub{ font-size:1.05rem; color:var(--ink); margin-top:1.8em; }
+
+  p{margin:0 0 1em 0; color:var(--ink);}
+  ul, ol.plain{margin:0 0 1.1em 0; padding-left:1.3em;}
+  li{margin-bottom:.4em;}
+
+  /* Bangla explanation box */
+  .bn-box{
+    background:var(--bangla-soft);
+    border-left:4px solid var(--bangla);
+    border-radius:0 10px 10px 0;
+    padding:16px 20px;
+    margin:14px 0 22px 0;
+  }
+  .bn-box .tag{
+    font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--bangla); margin-bottom:6px; display:block;
+  }
+  .bn-box p{ font-family:'Hind Siliguri',sans-serif; color:#4a3018; font-size:1rem; margin:0; line-height:1.9;}
+  .bn-box p + p{margin-top:.6em;}
+
+  /* English callout note */
+  .note{
+    background:var(--accent-soft); border-left:4px solid var(--accent);
+    border-radius:0 10px 10px 0; padding:12px 18px; margin:14px 0 22px 0;
+    font-size:.92rem; color:#1d3d35;
+  }
+  .note b{color:var(--accent);}
+
+  /* formula block */
+  .formula{
+    text-align:center; font-family:'JetBrains Mono',monospace; font-size:1rem;
+    background:#fff8ea; border:1px dashed #d8b06a; color:#7a4e00;
+    padding:12px 16px; border-radius:10px; margin:16px 0; overflow-x:auto;
+  }
+
+  table{
+    width:100%; border-collapse:collapse; margin:14px 0 22px 0;
+    font-size:.9rem; box-shadow:0 1px 3px rgba(0,0,0,.05);
+  }
+  thead th{
+    background:var(--navy); color:#fff; text-align:left; padding:10px 12px;
+    font-weight:600; font-size:.82rem;
+  }
+  tbody td{ padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tbody tr:nth-child(even){background:var(--grey);}
+
+  .rbs{
+    font-family:'JetBrains Mono',monospace; font-size:.85rem; background:var(--navy-deep);
+    color:#d8e6e1; padding:18px 22px; border-radius:12px; margin:16px 0 22px 0; line-height:1.9;
+    overflow-x:auto;
+  }
+  .rbs .l1{color:#8fd6bd; font-weight:700;}
+  .rbs .l2{padding-left:1.6em; color:#f2d9a8;}
+  .rbs .l3{padding-left:3.2em; color:#cfd8e0;}
+
+  .grid2{
+    display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:14px 0 22px 0;
+  }
+  .card{
+    background:var(--white); border:1px solid var(--line); border-radius:12px; padding:16px 18px;
+  }
+  .card h4{ margin:0 0 8px 0; font-size:.95rem; color:var(--navy);}
+
+  .pi-grid{
+    display:grid; grid-template-columns:120px 1fr 1fr; gap:2px; margin:16px 0 22px 0;
+    background:var(--line); border-radius:10px; overflow:hidden;
+  }
+  .pi-grid > div{ background:var(--white); padding:14px; font-size:.85rem;}
+  .pi-grid .head{ background:var(--navy); color:#fff; font-weight:600; text-align:center;}
+  .pi-grid .rowlabel{ background:var(--accent-soft); font-weight:700; display:flex; align-items:center; color:var(--navy);}
+  .pi-grid .quad-title{font-weight:700; color:var(--navy); display:block; margin-bottom:4px;}
+
+  /* Question bank */
+  .qcard{
+    background:var(--white); border:1px solid var(--line); border-left:4px solid var(--navy);
+    border-radius:0 12px 12px 0; padding:16px 20px; margin:14px 0;
+  }
+  .qcard .qmeta{ font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--ink-soft); margin-bottom:6px; text-transform:uppercase; letter-spacing:.06em;}
+  .qcard h4{margin:0 0 8px 0; color:var(--navy-deep); font-size:1.02rem;}
+
+  footer{
+    padding:40px 64px; color:var(--ink-soft); font-size:.82rem; text-align:center;
+    border-top:1px solid var(--line);
+  }
+
+  /* mobile */
+  @media (max-width:920px){
+    .shell{flex-direction:column;}
+    nav.toc{
+      position:relative; width:100%; height:auto; max-height:280px;
+      border-right:none; border-bottom:1px solid var(--line);
+    }
+    header.cover, section.topic{padding-left:24px; padding-right:24px;}
+    .grid2{grid-template-columns:1fr;}
+    .pi-grid{grid-template-columns:80px 1fr 1fr; font-size:.72rem;}
+  }
+  @media print{
+    nav.toc{display:none;}
+    .shell{display:block;}
+    section.topic{padding:24px 8px;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <nav class="toc">
+    <div class="brand">SE411 Master Note</div>
+    <div class="brand-sub bn">বাংলা ব্যাখ্যাসহ রিভিশন নোট</div>
+    <ol>
+      <li><a href="#resource">Resource Management
+        </a>
+        <ul class="sub">
+          <li><a href="#res-intro">Intro / ভূমিকা</a></li>
+          <li><a href="#res-hrm">HRM Planning</a></li>
+          <li><a href="#res-motivation">Motivation Theories</a></li>
+          <li><a href="#res-material">Material Resources</a></li>
+        </ul>
+      </li>
+      <li><a href="#procurement">Procurement Management</a>
+        <ul class="sub">
+          <li><a href="#proc-makebuy">Make-or-Buy</a></li>
+          <li><a href="#proc-docs">RFI / RFQ / RFP</a></li>
+          <li><a href="#proc-contracts">Contract Types</a></li>
+          <li><a href="#proc-tco">SLA / TCO</a></li>
+        </ul>
+      </li>
+      <li><a href="#communication">Communication Management</a>
+        <ul class="sub">
+          <li><a href="#comm-process">3 Processes</a></li>
+          <li><a href="#comm-channels">Channels Formula</a></li>
+          <li><a href="#comm-plan">Sample Comm. Plan</a></li>
+        </ul>
+      </li>
+      <li><a href="#stakeholder">Stakeholder Management</a>
+        <ul class="sub">
+          <li><a href="#sh-process">Process</a></li>
+          <li><a href="#sh-grid">Power–Interest Grid</a></li>
+          <li><a href="#sh-salience">Salience Model</a></li>
+        </ul>
+      </li>
+      <li><a href="#risk">Risk Management</a>
+        <ul class="sub">
+          <li><a href="#risk-id">Identification</a></li>
+          <li><a href="#risk-rbs">RBS</a></li>
+          <li><a href="#risk-register">Risk Register</a></li>
+          <li><a href="#risk-response">Response Strategies</a></li>
+          <li><a href="#risk-emv">EMV / Decision Tree</a></li>
+        </ul>
+      </li>
+      <li><a href="#qbank">Exam Question Bank</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="kicker">Daffodil International University · Dept. of Software Engineering · SE411</div>
+      <h1>Software Project Management &amp; Documentation — Master Revision Note</h1>
+      <p class="subtitle">Resource → Procurement → Communication → Stakeholder → Risk Management, with formulas, tables, worked examples and a Class‑Test / Final‑Exam question bank.</p>
+      <p class="subtitle bn">এই নোটে প্রতিটি টপিকের ইংরেজি থিওরি ও টেবিলের পাশাপাশি <b>বাংলায় সহজ ব্যাখ্যা</b> দেওয়া আছে, যাতে পরীক্ষার আগে দ্রুত রিভিশন করা যায়।</p>
+      <div class="pills">
+        <span>Resource Mgmt.</span><span>Procurement</span><span>Communication</span><span>Stakeholder</span><span>Risk Mgmt.</span><span>Question Bank</span>
+      </div>
+    </header>
+
+    <!-- ======================= 1. RESOURCE MANAGEMENT ======================= -->
+    <section class="topic" id="resource">
+      <div class="topic-head">
+        <div class="topic-num">1</div>
+        <div>
+          <span class="eng-tag">Knowledge Area</span>
+          <h1>Resource Management</h1>
+        </div>
+      </div>
+
+      <h2 class="sub" id="res-intro">1.1 Introduction</h2>
+      <p>Resource Management is the process of planning, acquiring, allocating, utilising, monitoring, and controlling the resources needed to complete a project successfully. The goal: the right resources, right quantity, right time, right cost.</p>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>রিসোর্স ম্যানেজমেন্ট মানে হলো প্রজেক্টে দরকারি সব রিসোর্স — মানুষ, হার্ডওয়্যার, সফটওয়্যার, বাজেট, সময় — সঠিকভাবে পরিকল্পনা করে জোগাড় করা, বণ্টন করা এবং নিয়ন্ত্রণ করা, যাতে প্রজেক্ট সময়মতো ও বাজেটের মধ্যে শেষ হয়।</p>
+        <p>এটি গুরুত্বপূর্ণ কারণ এতে প্রজেক্ট বাজেটের মধ্যে থাকে, ডেডলাইন রক্ষা হয়, প্রোডাক্টিভিটি বাড়ে, এবং কর্মীদের বার্নআউট কমে।</p>
+      </div>
+
+      <h3 class="subsub">Resource Management Process (7 steps)</h3>
+      <div class="formula">Resource Planning → Acquisition → Allocation → Scheduling → Monitoring → Optimization → Release</div>
+
+      <h3 class="subsub">Two Categories of Resources</h3>
+      <table>
+        <thead><tr><th>Human Resources</th><th>Material Resources</th></tr></thead>
+        <tbody>
+          <tr><td>People (PM, engineers, testers, analysts)</td><td>Physical or digital assets</td></tr>
+          <tr><td>Need motivation</td><td>Need maintenance</td></tr>
+          <tr><td>Learn &amp; improve over time</td><td>Depreciate over time</td></tr>
+          <tr><td>Creative, difficult to replace</td><td>Non-creative, easier to replace</td></tr>
+          <tr><td>High management complexity</td><td>Lower management complexity</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>মানব সম্পদ (Human Resource) হলো মানুষ — যাদের মোটিভেশন লাগে, তারা শিখে উন্নতি করে, কিন্তু সহজে রিপ্লেস করা যায় না। বস্তুগত সম্পদ (Material Resource) হলো কম্পিউটার, সার্ভার, সফটওয়্যার লাইসেন্স ইত্যাদি — এগুলো সময়ের সাথে পুরাতন হয়ে যায় (depreciate) কিন্তু সহজে বদলানো যায়।</p>
+      </div>
+
+      <h2 class="sub" id="res-hrm">1.2 Human Resource Management (HRM) Planning</h2>
+      <p>HRM Planning identifies, acquires, develops, manages, and utilises the people required for the project — answering Who / How many / What skills / When / How long.</p>
+      <table>
+        <thead><tr><th>Step</th><th>Focus</th><th>Key Techniques / Examples</th></tr></thead>
+        <tbody>
+          <tr><td>1. Requirement Analysis</td><td>Skills, headcount, duration, experience level</td><td>Map roles to project activities</td></tr>
+          <tr><td>2. Resource Estimation</td><td>How many developers/testers/designers</td><td>Expert Judgment, Analogous, Parametric, Bottom-up</td></tr>
+          <tr><td>3. Resource Acquisition</td><td>Getting the people</td><td>Internal/external recruitment, outsourcing, freelancers, consultants</td></tr>
+          <tr><td>4. Team Development</td><td>Building capability &amp; cohesion</td><td>Training, workshops, mentoring, pair programming</td></tr>
+          <tr><td>5. Resource Allocation</td><td>Right person, right task</td><td>Dev A → Backend, Dev B → Frontend, Tester A → System Testing</td></tr>
+          <tr><td>6. Performance Management</td><td>Evaluating people</td><td>KPIs, peer review, appraisal, sprint review</td></tr>
+          <tr><td>7. Resource Release</td><td>Post-project wrap-up</td><td>Release temp staff, archive docs, capture lessons learned</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="subsub">Example RACI Matrix</h3>
+      <table>
+        <thead><tr><th>Activity</th><th>PM</th><th>Developer</th><th>Tester</th><th>Client</th></tr></thead>
+        <tbody>
+          <tr><td>Requirements</td><td>A</td><td>C</td><td>I</td><td>R</td></tr>
+          <tr><td>Coding</td><td>A</td><td>R</td><td>I</td><td>I</td></tr>
+          <tr><td>Testing</td><td>I</td><td>C</td><td>R</td><td>I</td></tr>
+          <tr><td>Deployment</td><td>A</td><td>R</td><td>C</td><td>I</td></tr>
+        </tbody>
+      </table>
+      <div class="note"><b>R</b> = Responsible &nbsp; <b>A</b> = Accountable &nbsp; <b>C</b> = Consulted &nbsp; <b>I</b> = Informed</div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>RACI ম্যাট্রিক্স দেখায় প্রতিটি কাজের জন্য কে দায়িত্বপ্রাপ্ত (Responsible), কে জবাবদিহি করবে (Accountable), কার পরামর্শ নেওয়া হবে (Consulted), আর কাকে শুধু জানানো হবে (Informed)। পরীক্ষায় স্ক্রিপ্ট দিয়ে RACI বসাতে বলা হতে পারে — তাই প্রতিটি রোলের সংজ্ঞা মুখস্থ রাখা জরুরি।</p>
+      </div>
+
+      <h2 class="sub" id="res-motivation">1.3 Motivating Teams — Maslow's Hierarchy of Needs</h2>
+      <table>
+        <thead><tr><th>Level (low → high)</th><th>Meaning</th><th>Software-Company Example</th></tr></thead>
+        <tbody>
+          <tr><td>1. Physiological</td><td>Basic survival needs</td><td>Fair salary, lunch facilities, flexible breaks</td></tr>
+          <tr><td>2. Safety</td><td>Security &amp; stability</td><td>Job security, stable employment, health insurance</td></tr>
+          <tr><td>3. Social / Belonging</td><td>Belonging &amp; relationships</td><td>Team meetings, team lunches, hackathons</td></tr>
+          <tr><td>4. Esteem</td><td>Respect &amp; recognition</td><td>Employee of the Month, promotion, bonuses</td></tr>
+          <tr><td>5. Self-Actualization</td><td>Growth &amp; fulfilment</td><td>Conferences, open-source, R&amp;D, leadership roles</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>মাসলোর তত্ত্ব অনুযায়ী মানুষের চাহিদা ৫ স্তরে সাজানো — নিচের স্তর পূরণ না হলে উপরের স্তরের চাহিদা মোটিভেশন দিতে পারে না। যেমন — বেতন-নিরাপত্তা (Physiological/Safety) আগে ঠিক করতে হবে, তারপর টিমওয়ার্ক (Social), তারপর স্বীকৃতি (Esteem), সবশেষে গ্রোথ/উদ্ভাবনের সুযোগ (Self-Actualization)।</p>
+        <p><b>পরীক্ষার টিপস:</b> কেস স্টাডিতে কর্মী রিজাইন করলে সাধারণত Safety Needs (চাকরির নিরাপত্তা), যোগাযোগ খারাপ হলে Social Needs, আর কাজের চাপ/একঘেয়েমি থাকলে Esteem/Self-Actualization নিয়ে উত্তর সাজাতে হয়।</p>
+      </div>
+
+      <h3 class="subsub">Other Motivation Theories (quick reference)</h3>
+      <table>
+        <thead><tr><th>Theory</th><th>Core Idea</th></tr></thead>
+        <tbody>
+          <tr><td>Herzberg's Two-Factor</td><td>Hygiene factors (salary, policy) prevent dissatisfaction; Motivators (achievement, recognition, growth) increase satisfaction</td></tr>
+          <tr><td>McGregor's Theory X/Y</td><td>X: dislike work, need supervision. Y: self-motivated, accept responsibility (modern software teams → Theory Y)</td></tr>
+          <tr><td>McClelland's Needs Theory</td><td>Driven by Achievement, Power, or Affiliation — different people, different drivers</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="sub" id="res-material">1.4 Material Resource Management</h2>
+      <p>Lifecycle: Planning → Procurement → Allocation → Maintenance → Monitoring → Disposal/Replacement.</p>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>বস্তুগত সম্পদ (সার্ভার, লাইসেন্স, ক্লাউড) ব্যবস্থাপনার ধাপগুলো: প্রথমে প্রয়োজন নির্ধারণ (Planning), তারপর কেনা (Procurement), টিমকে বণ্টন (Allocation), নিয়মিত রক্ষণাবেক্ষণ (Maintenance), ব্যবহার পর্যবেক্ষণ (Monitoring), এবং পুরাতন হলে আপগ্রেড/বাতিল (Disposal)।</p>
+      </div>
+    </section>
+
+    <!-- ======================= 2. PROCUREMENT MANAGEMENT ======================= -->
+    <section class="topic" id="procurement">
+      <div class="topic-head">
+        <div class="topic-num">2</div>
+        <div>
+          <span class="eng-tag">Knowledge Area</span>
+          <h1>Procurement Management</h1>
+        </div>
+      </div>
+
+      <h2 class="sub">2.1 Introduction</h2>
+      <p>Procurement Management is the systematic process of identifying, acquiring, administering, and closing products, services, software, hardware, or expertise obtained from outside the project team — e.g., cloud infrastructure, licenses, dev tools, third-party APIs, consultants, COTS software.</p>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>প্রকিউরমেন্ট ম্যানেজমেন্ট মানে বাইরের সাপ্লায়ার/ভেন্ডর থেকে দরকারি জিনিস (যেমন ক্লাউড হোস্টিং, পেমেন্ট গেটওয়ে, সিকিউরিটি টেস্টিং টুল) কেনা বা আউটসোর্স করার নিয়মতান্ত্রিক প্রক্রিয়া। সঠিক প্রকিউরমেন্ট না হলে প্রজেক্ট দেরি হয়, বাজেট বাড়ে, এবং নিরাপত্তা ঝুঁকি তৈরি হয়।</p>
+      </div>
+
+      <h2 class="sub" id="proc-makebuy">2.2 Make-or-Buy Analysis</h2>
+      <p>Should we develop the product/service internally (Make), or acquire it externally (Buy)?</p>
+      <div class="grid2">
+        <div class="card">
+          <h4>Make (build internally)</h4>
+          <p style="margin:0;">+ Greater control, easier customization, IP protection<br>− Higher effort, longer time, needs specialised staff</p>
+        </div>
+        <div class="card">
+          <h4>Buy (purchase / outsource)</h4>
+          <p style="margin:0;">+ Faster implementation, specialised expertise<br>− Vendor dependency, recurring cost, lock-in risk</p>
+        </div>
+      </div>
+      <div class="formula">Total Cost (n years) = Initial Cost + (Annual Cost × n)</div>
+      <table>
+        <thead><tr><th>Option</th><th>Initial Cost</th><th>Annual Cost</th><th>4-Year Total</th></tr></thead>
+        <tbody>
+          <tr><td>Make (develop internally)</td><td>1,500,000</td><td>300,000</td><td>1,500,000 + 4(300,000) = 2,700,000</td></tr>
+          <tr><td>Buy (purchase / subscribe)</td><td>500,000</td><td>450,000</td><td>500,000 + 4(450,000) = 2,300,000</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>মেক-অর-বাই অ্যানালাইসিস মানে হলো — নিজেরা বানাবো নাকি বাইরে থেকে কিনবো, সেটা খরচ হিসাব করে ঠিক করা। উপরের উদাহরণে ৪ বছরের মোট খরচ হিসাব করলে কেনা (Buy) সস্তা পড়ে (৪,০০,০০০ টাকা সাশ্রয়), তবে শুধু খরচ নয় — নিরাপত্তা, কাস্টমাইজেশন, ভেন্ডর নির্ভরতাও বিবেচনা করতে হবে।</p>
+      </div>
+
+      <h2 class="sub" id="proc-docs">2.3 Procurement Documents — RFI vs RFQ vs RFP</h2>
+      <table>
+        <thead><tr><th>Document</th><th>Main Purpose</th><th>Key Question</th></tr></thead>
+        <tbody>
+          <tr><td>RFI (Information)</td><td>Explore the market</td><td>What solutions exist?</td></tr>
+          <tr><td>RFQ (Quotation)</td><td>Get pricing for defined items</td><td>How much will it cost?</td></tr>
+          <tr><td>RFP (Proposal)</td><td>Get proposed solutions</td><td>How will you solve our problem?</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p><b>RFI</b> — বাজারে কী কী সমাধান আছে তা জানতে চাওয়া। <b>RFQ</b> — স্পষ্ট চাহিদার জন্য দাম জানতে চাওয়া। <b>RFP</b> — সমস্যাটি বর্ণনা করে ভেন্ডরের কাছ থেকে পূর্ণাঙ্গ সমাধান প্রস্তাব চাওয়া। সহজ মনে রাখার উপায়: I=Information, Q=Quotation, P=Proposal।</p>
+      </div>
+
+      <h3 class="subsub">Source Selection Criteria (5 common factors)</h3>
+      <table>
+        <thead><tr><th>Factor</th><th>What to Consider</th></tr></thead>
+        <tbody>
+          <tr><td>1. Cost &amp; Pricing</td><td>Fees, setup/maintenance, hidden costs — best value, not just cheapest</td></tr>
+          <tr><td>2. Security &amp; Compliance</td><td>Encryption, auth, data protection, compliance — critical for payments</td></tr>
+          <tr><td>3. Reliability &amp; Performance</td><td>Uptime, latency, backup/recovery, SLAs</td></tr>
+          <tr><td>4. Scalability &amp; Compatibility</td><td>Handles growth, integrates with existing systems</td></tr>
+          <tr><td>5. Vendor Reputation &amp; Support</td><td>Track record, financial stability, support speed</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="subsub">Weighted Scoring Model</h3>
+      <div class="formula">Score(vendor) = Σ (weight&#8321; × rating&#8321;),  where Σ weight&#8321; = 1</div>
+      <table>
+        <thead><tr><th>Criterion</th><th>Weight</th><th>Vendor A</th><th>Vendor B</th><th>Vendor C</th></tr></thead>
+        <tbody>
+          <tr><td>Technical Quality</td><td>0.35</td><td>9</td><td>8</td><td>7</td></tr>
+          <tr><td>Cost</td><td>0.25</td><td>7</td><td>9</td><td>8</td></tr>
+          <tr><td>Experience</td><td>0.15</td><td>8</td><td>7</td><td>9</td></tr>
+          <tr><td>Support</td><td>0.15</td><td>9</td><td>7</td><td>8</td></tr>
+          <tr><td>Security</td><td>0.10</td><td>9</td><td>8</td><td>7</td></tr>
+          <tr><td><b>Weighted Total</b></td><td>1.00</td><td><b>8.35</b></td><td>7.95</td><td>7.70</td></tr>
+        </tbody>
+      </table>
+      <div class="note">Vendor A wins on weighted score even though Vendor B looked cheapest — <b>the lowest-price vendor is not necessarily the best-value vendor.</b></div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>ওয়েটেড স্কোরিং মডেলে প্রতিটি ভেন্ডরের বিভিন্ন মানদণ্ডে (কস্ট, সিকিউরিটি ইত্যাদি) রেটিং x ওয়েট গুণ করে যোগ করা হয়। যার স্কোর সবচেয়ে বেশি, তাকে বেছে নেওয়া হয় — এখানে দেখা যাচ্ছে সবচেয়ে সস্তা ভেন্ডর (B) না জিতে, সামগ্রিক ভালো ভেন্ডর (A) জিতেছে।</p>
+      </div>
+
+      <h2 class="sub" id="proc-contracts">2.4 Contract Types</h2>
+      <table>
+        <thead><tr><th>Contract Type</th><th>Formula / Basis</th><th>Cost Risk Mainly With</th><th>Best When</th></tr></thead>
+        <tbody>
+          <tr><td>Fixed-Price (FP)</td><td>Agreed lump sum</td><td>Seller</td><td>Scope is clear &amp; stable</td></tr>
+          <tr><td>Cost-Reimbursable (CR)</td><td>Allowable Cost + Fee</td><td>Buyer</td><td>Scope is uncertain</td></tr>
+          <tr><td>Time &amp; Materials (T&amp;M)</td><td>(Hourly Rate × Hours) + Materials</td><td>Shared / Buyer</td><td>Effort hard to estimate (Agile)</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p><b>Fixed-Price</b>: নির্দিষ্ট দামে চুক্তি — সেলারের ঝুঁকি বেশি। <b>Cost-Reimbursable</b>: প্রকৃত খরচ + ফি দেওয়া হয় — বায়ারের ঝুঁকি বেশি, স্কোপ অনিশ্চিত হলে ব্যবহার হয়। <b>Time &amp; Materials</b>: ঘণ্টাপ্রতি রেট অনুযায়ী পেমেন্ট — এজাইল প্রজেক্টে বেশি দেখা যায়।</p>
+      </div>
+
+      <h2 class="sub" id="proc-tco">2.5 SLA, TCO &amp; Risk</h2>
+      <div class="formula">Availability = (Total Time − Downtime) / Total Time × 100%</div>
+      <p>Example: at 99.9% monthly availability, a 30-day month (720 hrs) allows only about <b>43.2 minutes</b> of downtime.</p>
+      <div class="formula">TCO = License + Implementation + Training + Maintenance + Support + Migration/Exit</div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p><b>SLA (Service Level Agreement)</b> হলো ভেন্ডরের সাথে পরিমাপযোগ্য সার্ভিস প্রতিশ্রুতির চুক্তি (যেমন ৯৯.৯% আপটাইম)। <b>TCO (Total Cost of Ownership)</b> মানে শুধু কেনার দাম নয়, বরং পুরো জীবনচক্রের খরচ (লাইসেন্স + ইমপ্লিমেন্টেশন + মেইনটেন্যান্স + সাপোর্ট) হিসাব করা — কম দামের প্রোডাক্ট সবসময় সবচেয়ে সাশ্রয়ী নাও হতে পারে।</p>
+      </div>
+
+      <h3 class="subsub">Worked Example — Dedicated Server TCO (5 years)</h3>
+      <div class="formula">TCO = Initial Purchase + Installation + (Maintenance × 5) + (Operating × 5) − Salvage Value</div>
+      <table>
+        <thead><tr><th>Cost Component</th><th>Option A</th><th>Option B</th></tr></thead>
+        <tbody>
+          <tr><td>Initial Purchase Price</td><td>900,000</td><td>1,100,000</td></tr>
+          <tr><td>Installation &amp; Setup</td><td>100,000</td><td>80,000</td></tr>
+          <tr><td>Annual Maintenance</td><td>90,000</td><td>60,000</td></tr>
+          <tr><td>Annual Operating Cost</td><td>70,000</td><td>50,000</td></tr>
+          <tr><td>Salvage Value (5 yrs)</td><td>150,000</td><td>250,000</td></tr>
+          <tr><td><b>TCO (5 years)</b></td><td><b>1,900,000</b></td><td><b>1,430,000</b></td></tr>
+        </tbody>
+      </table>
+      <div class="note">Option B saves Tk. 470,000 over 5 years despite the higher sticker price.</div>
+    </section>
+
+    <!-- ======================= 3. COMMUNICATION MANAGEMENT ======================= -->
+    <section class="topic" id="communication">
+      <div class="topic-head">
+        <div class="topic-num">3</div>
+        <div>
+          <span class="eng-tag">Knowledge Area</span>
+          <h1>Communication Management</h1>
+        </div>
+      </div>
+
+      <h2 class="sub">3.1 Introduction</h2>
+      <p>Project Communication Management ensures project information is generated, collected, distributed, stored, monitored, and disposed of properly. Right information + Right people + Right time + Right format = Successful Project Communication.</p>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>কমিউনিকেশন ম্যানেজমেন্ট নিশ্চিত করে যে সঠিক তথ্য সঠিক মানুষের কাছে সঠিক সময়ে সঠিক মাধ্যমে পৌঁছায়। দুর্বল যোগাযোগ থেকেই বেশিরভাগ প্রজেক্ট ব্যর্থতা, রিকোয়্যারমেন্ট ভুল বোঝাবুঝি এবং রিওয়ার্ক তৈরি হয়।</p>
+      </div>
+
+      <h2 class="sub" id="comm-process">3.2 Three Communication Processes</h2>
+      <table>
+        <thead><tr><th>Process</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>1. Plan Communications Management</td><td>Decide who needs what, when, how; produces the Communication Plan</td></tr>
+          <tr><td>2. Manage Communications</td><td>Execute the plan — reports, meetings, updates</td></tr>
+          <tr><td>3. Monitor Communications</td><td>Collect feedback, find gaps, update the plan</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="subsub">Communication Methods</h3>
+      <table>
+        <thead><tr><th>Type</th><th>Examples</th><th>Pros / Cons</th></tr></thead>
+        <tbody>
+          <tr><td>Interactive</td><td>Meetings, calls, video conf</td><td>+ Immediate feedback / − time-consuming</td></tr>
+          <tr><td>Push</td><td>Email, status reports, newsletters</td><td>+ Fast, documented / − no guarantee it's read</td></tr>
+          <tr><td>Pull</td><td>Portals, wikis, dashboards</td><td>+ Always available / − requires active retrieval</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p><b>Interactive</b> মানে দুই পক্ষের সরাসরি রিয়েল-টাইম আলোচনা (মিটিং, কল)। <b>Push</b> মানে তথ্য সরাসরি পাঠিয়ে দেওয়া (ইমেইল, রিপোর্ট) — পড়া হবে তার গ্যারান্টি নেই। <b>Pull</b> মানে তথ্য একটি জায়গায় রাখা, প্রয়োজনে মানুষ নিজে গিয়ে দেখে নেয় (উইকি, পোর্টাল)।</p>
+      </div>
+
+      <h2 class="sub" id="comm-channels">3.3 Communication Channels Formula</h2>
+      <div class="formula">Channels = n(n − 1) / 2 &nbsp; (n = number of stakeholders)</div>
+      <table>
+        <thead><tr><th>Stakeholders (n)</th><th>Channels</th></tr></thead>
+        <tbody>
+          <tr><td>8</td><td>8×7 / 2 = 28</td></tr>
+          <tr><td>10</td><td>10×9 / 2 = 45</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>স্টেকহোল্ডার বাড়লে যোগাযোগের চ্যানেল সংখ্যা অনেক দ্রুত বাড়ে (n বাড়লে channel বাড়ে n² অনুপাতে)। এই কারণেই বড় প্রজেক্টে সমন্বয় করা কঠিন হয়ে যায় — এটি পরীক্ষায় প্রায়ই সংখ্যাভিত্তিক (numeric) প্রশ্ন হিসেবে আসে, সূত্রটি মুখস্থ রাখুন।</p>
+      </div>
+
+      <h2 class="sub" id="comm-plan">3.4 Sample Communication Management Plan</h2>
+      <table>
+        <thead><tr><th>Stakeholder</th><th>Information Needed</th><th>Method</th><th>Frequency</th><th>Responsible</th></tr></thead>
+        <tbody>
+          <tr><td>Client</td><td>Project progress</td><td>Weekly meeting</td><td>Weekly</td><td>Project Manager</td></tr>
+          <tr><td>Development Team</td><td>Task assignments</td><td>Jira, daily stand-up</td><td>Daily</td><td>Team Lead</td></tr>
+          <tr><td>QA Team</td><td>Build status</td><td>Email, Jira</td><td>Daily</td><td>Development Lead</td></tr>
+          <tr><td>Sponsor</td><td>Budget &amp; milestones</td><td>Monthly report</td><td>Monthly</td><td>Project Manager</td></tr>
+          <tr><td>Users</td><td>New features</td><td>Demonstration</td><td>End of sprint</td><td>Business Analyst</td></tr>
+        </tbody>
+      </table>
+      <div class="note">Also specify: communication tools, escalation procedures, reporting templates, and how feedback is collected.</div>
+
+      <h3 class="subsub">Effective vs Poor Meetings</h3>
+      <table>
+        <thead><tr><th>Effective Meetings</th><th>Poor Meetings</th></tr></thead>
+        <tbody>
+          <tr><td>Agenda prepared beforehand</td><td>No agenda</td></tr>
+          <tr><td>Only necessary participants invited</td><td>Too many participants</td></tr>
+          <tr><td>Start/finish on time, focused</td><td>Repeated / unfocused discussions</td></tr>
+          <tr><td>Action items assigned, minutes recorded</td><td>No documented outcomes</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>মিটিং দীর্ঘ ও অনুৎপাদনশীল হওয়ার সমাধান: আগে থেকে এজেন্ডা ঠিক করা, শুধু প্রাসঙ্গিক মানুষদের ডাকা, নির্দিষ্ট সময়ে শুরু-শেষ করা, একজন মডারেটর রাখা, এবং প্রতিটি সিদ্ধান্তের অ্যাকশন আইটেম ও দায়িত্বপ্রাপ্ত ব্যক্তি লিখে রাখা।</p>
+      </div>
+    </section>
+
+    <!-- ======================= 4. STAKEHOLDER MANAGEMENT ======================= -->
+    <section class="topic" id="stakeholder">
+      <div class="topic-head">
+        <div class="topic-num">4</div>
+        <div>
+          <span class="eng-tag">Knowledge Area</span>
+          <h1>Stakeholder Management</h1>
+        </div>
+      </div>
+
+      <h2 class="sub">4.1 Introduction</h2>
+      <p>A stakeholder is any individual, group, or organization that may affect, be affected by, or perceive itself to be affected by a project decision, activity, or outcome (PMBOK).</p>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>স্টেকহোল্ডার হলো এমন যে কেউ যে প্রজেক্টকে প্রভাবিত করতে পারে, প্রজেক্ট দ্বারা প্রভাবিত হয়, অথবা নিজেকে প্রভাবিত মনে করে — যেমন ক্লায়েন্ট, ইউজার, ডেভেলপার, ম্যানেজমেন্ট, ভেন্ডর। সফটওয়্যার প্রজেক্ট প্রায়ই ব্যর্থ হয় দুর্বল কমিউনিকেশন ও স্টেকহোল্ডার ম্যানেজমেন্টের কারণে, শুধু প্রযুক্তিগত সমস্যায় নয়।</p>
+      </div>
+
+      <h2 class="sub" id="sh-process">4.2 Stakeholder Management Process</h2>
+      <div class="formula">Identify Stakeholders → Analyze Stakeholders → Plan Engagement → Monitor &amp; Control Engagement</div>
+
+      <h3 class="subsub">Types of Stakeholders</h3>
+      <table>
+        <thead><tr><th>Category</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td>Internal</td><td>PM, developers, testers, business analysts, management</td></tr>
+          <tr><td>External</td><td>Customers, vendors, government agencies, investors, end users</td></tr>
+          <tr><td>Primary</td><td>Customer, end users, development team (directly affected)</td></tr>
+          <tr><td>Secondary</td><td>Media, local community, regulatory bodies (indirectly affected)</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="sub" id="sh-grid">4.3 Power–Interest Grid (Matrix)</h2>
+      <div class="pi-grid">
+        <div class="head"></div>
+        <div class="head">High Interest</div>
+        <div class="head">Low Interest</div>
+        <div class="rowlabel">High Power</div>
+        <div><span class="quad-title">Manage Closely</span>Client, Product Owner, CEO — frequent meetings, decision involvement</div>
+        <div><span class="quad-title">Keep Satisfied</span>Senior Management, Investors — executive summaries, milestone updates</div>
+        <div class="rowlabel">Low Power</div>
+        <div><span class="quad-title">Keep Informed</span>End Users, Testers — product demos, requirement updates</div>
+        <div><span class="quad-title">Monitor</span>General Public, non-project employees — occasional communication</div>
+      </div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>পাওয়ার-ইন্টারেস্ট গ্রিড দিয়ে স্টেকহোল্ডারদের ৪ ভাগে ভাগ করা হয়: উচ্চ ক্ষমতা+উচ্চ আগ্রহ থাকলে <b>Manage Closely</b> (ঘন ঘন মিটিং), উচ্চ ক্ষমতা+কম আগ্রহ হলে <b>Keep Satisfied</b> (সারসংক্ষেপ রিপোর্ট), কম ক্ষমতা+উচ্চ আগ্রহ হলে <b>Keep Informed</b> (ডেমো/আপডেট), আর কম ক্ষমতা+কম আগ্রহ হলে <b>Monitor</b> (মাঝেমধ্যে যোগাযোগ)।</p>
+      </div>
+
+      <h3 class="subsub">Worked Example — Online Student Management System</h3>
+      <table>
+        <thead><tr><th>Stakeholder</th><th>Power</th><th>Interest</th><th>Quadrant</th></tr></thead>
+        <tbody>
+          <tr><td>Registrar</td><td>High</td><td>High</td><td>Manage Closely</td></tr>
+          <tr><td>Students</td><td>Low</td><td>High</td><td>Keep Informed</td></tr>
+          <tr><td>University Board</td><td>High</td><td>Low</td><td>Keep Satisfied</td></tr>
+          <tr><td>General Public</td><td>Low</td><td>Low</td><td>Monitor</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="sub" id="sh-salience">4.4 Salience Model &amp; Engagement Levels</h2>
+      <table>
+        <thead><tr><th>Attributes Held (Power / Legitimacy / Urgency)</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>One</td><td>Low</td></tr>
+          <tr><td>Two</td><td>Medium</td></tr>
+          <tr><td>Three</td><td>Highest</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>Engagement Level</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Unaware</td><td>Does not know about the project</td></tr>
+          <tr><td>Resistant</td><td>Opposes the project</td></tr>
+          <tr><td>Neutral</td><td>Neither supports nor opposes</td></tr>
+          <tr><td>Supportive</td><td>Supports the project</td></tr>
+          <tr><td>Leading</td><td>Actively promotes the project</td></tr>
+        </tbody>
+      </table>
+      <div class="note">Goal: move stakeholders toward Supportive or Leading.</div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>Salience Model-এ তিনটি বৈশিষ্ট্য দেখা হয় — Power (ক্ষমতা), Legitimacy (বৈধতা), Urgency (জরুরিত্ব)। যার তিনটিই আছে, সে সবচেয়ে বেশি অগ্রাধিকার পায়। আর Engagement Level দেখায় স্টেকহোল্ডার প্রজেক্ট সম্পর্কে কতটা ইতিবাচক — লক্ষ্য থাকে তাদের Supportive বা Leading পর্যায়ে নিয়ে যাওয়া।</p>
+      </div>
+    </section>
+
+    <!-- ======================= 5. RISK MANAGEMENT ======================= -->
+    <section class="topic" id="risk">
+      <div class="topic-head">
+        <div class="topic-num">5</div>
+        <div>
+          <span class="eng-tag">Knowledge Area</span>
+          <h1>Risk Management</h1>
+        </div>
+      </div>
+
+      <h2 class="sub">5.1 Introduction</h2>
+      <p>A risk is an uncertain event or condition that, if it occurs, affects one or more project objectives (scope, schedule, cost, quality). Risk may be positive (opportunity) or negative (threat).</p>
+      <div class="grid2">
+        <div class="card"><h4>Negative Risk (Threat)</h4><p style="margin:0;">Developer resigns, server crashes, requirement changes, budget cut</p></div>
+        <div class="card"><h4>Positive Risk (Opportunity)</h4><p style="margin:0;">Client increases budget, new tool boosts productivity, team finishes early</p></div>
+      </div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>রিস্ক মানে অনিশ্চিত ঘটনা যা প্রজেক্টের স্কোপ, শিডিউল, খরচ বা মান — কোনো একটিকে প্রভাবিত করতে পারে। এটি খারাপ (Threat) হতে পারে, আবার ভালোও (Opportunity) হতে পারে — যেমন ক্লায়েন্ট বাজেট বাড়ালে সেটাও একটি "রিস্ক" (positive risk)।</p>
+      </div>
+
+      <div class="formula">Plan Risk Mgmt → Identify Risks → Qualitative Analysis → Quantitative Analysis (optional) → Plan Responses → Implement → Monitor</div>
+
+      <h2 class="sub" id="risk-id">5.2 Risk Identification</h2>
+      <p>Every risk should capture: <b>Cause → Risk Event → Impact.</b> e.g., "Because the client frequently changes requirements, the project schedule may be delayed."</p>
+      <table>
+        <thead><tr><th>Technique</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Brainstorming</td><td>Team discusses possible risks together</td></tr>
+          <tr><td>Expert Judgment</td><td>Experienced professionals draw on past projects</td></tr>
+          <tr><td>Checklist Analysis</td><td>Use risks from prior projects as a checklist</td></tr>
+          <tr><td>SWOT Analysis</td><td>Strengths, Weaknesses, Opportunities, Threats</td></tr>
+          <tr><td>Interviews</td><td>Interview client, developers, testers, users</td></tr>
+          <tr><td>Document Review</td><td>Review Project Charter, SRS, schedule, budget, contracts</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>রিস্ক আইডেন্টিফিকেশনের সময় সবসময় লিখতে হবে — কারণ কী (Cause), ঘটনাটি কী (Event), এবং তার ফলাফল কী (Impact)। বিভিন্ন টেকনিক ব্যবহার করা যায় — যেমন ব্রেইনস্টর্মিং, বিশেষজ্ঞের মতামত, চেকলিস্ট, SWOT, ইন্টারভিউ, ডকুমেন্ট রিভিউ।</p>
+      </div>
+
+      <h2 class="sub" id="risk-rbs">5.3 Risk Breakdown Structure (RBS)</h2>
+      <p>A hierarchical classification of project risks by source (parallel to a WBS).</p>
+      <div class="rbs">
+Project Risks<br>
+<span class="l1">├── Technical</span><br>
+<span class="l2">│&nbsp;&nbsp;&nbsp;├── Software Bugs</span><br>
+<span class="l2">│&nbsp;&nbsp;&nbsp;├── Integration Failure</span><br>
+<span class="l2">│&nbsp;&nbsp;&nbsp;└── Performance Issues</span><br>
+<span class="l1">├── Project Management</span><br>
+<span class="l2">│&nbsp;&nbsp;&nbsp;├── Poor Planning</span><br>
+<span class="l2">│&nbsp;&nbsp;&nbsp;└── Schedule Delay / Budget Overrun</span><br>
+<span class="l1">├── Organizational / HR</span><br>
+<span class="l2">│&nbsp;&nbsp;&nbsp;├── Staff Turnover</span><br>
+<span class="l2">│&nbsp;&nbsp;&nbsp;└── Skill Gap / Resource Shortage</span><br>
+<span class="l1">├── External</span><br>
+<span class="l2">│&nbsp;&nbsp;&nbsp;├── Government Regulation</span><br>
+<span class="l2">│&nbsp;&nbsp;&nbsp;└── Vendor Delay / Natural Disaster</span><br>
+<span class="l1">└── Security</span><br>
+<span class="l2">&nbsp;&nbsp;&nbsp;&nbsp;├── Data Breach / Malware</span><br>
+<span class="l2">&nbsp;&nbsp;&nbsp;&nbsp;└── Unauthorized Access</span>
+      </div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>RBS হলো প্রজেক্টের সব রিস্ককে উৎস অনুযায়ী গাছের মতো সাজানো — যেমন Technical, Management, HR, External, Security ইত্যাদি ক্যাটাগরিতে ভাগ করা। এটি WBS-এর মতোই, শুধু কাজের বদলে রিস্ক ভাগ করে। পরীক্ষায় প্রায়ই স্ক্রিপ্ট দিয়ে RBS আঁকতে বলা হয়।</p>
+      </div>
+
+      <h2 class="sub" id="risk-register">5.4 Risk Register &amp; Qualitative Analysis</h2>
+      <table>
+        <thead><tr><th>Risk ID</th><th>Risk</th><th>Category</th><th>Prob.</th><th>Impact</th><th>Priority</th><th>Response</th><th>Owner</th></tr></thead>
+        <tbody>
+          <tr><td>R1</td><td>Requirement changes</td><td>Requirements</td><td>High</td><td>High</td><td>High</td><td>Mitigate</td><td>PM</td></tr>
+          <tr><td>R2</td><td>Developer resignation</td><td>HR</td><td>Medium</td><td>High</td><td>High</td><td>Mitigate</td><td>HR Manager</td></tr>
+          <tr><td>R3</td><td>Server outage</td><td>Technical</td><td>Medium</td><td>Medium</td><td>Medium</td><td>Transfer</td><td>IT Admin</td></tr>
+          <tr><td>R4</td><td>Budget increase (opp.)</td><td>Opportunity</td><td>Low</td><td>High</td><td>Medium</td><td>Exploit</td><td>PM</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="subsub">Probability–Impact Matrix</h3>
+      <table>
+        <thead><tr><th>Impact \ Probability</th><th>Low</th><th>Medium</th><th>High</th></tr></thead>
+        <tbody>
+          <tr><td>High</td><td>Medium</td><td>High</td><td>Very High</td></tr>
+          <tr><td>Medium</td><td>Low</td><td>Medium</td><td>High</td></tr>
+          <tr><td>Low</td><td>Low</td><td>Low</td><td>Medium</td></tr>
+        </tbody>
+      </table>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>Risk Register হলো রিস্ক ট্র্যাক করার প্রধান ডকুমেন্ট — প্রতিটি রিস্কের বিবরণ, প্রোবাবিলিটি, ইমপ্যাক্ট, প্রায়োরিটি, রেসপন্স এবং দায়িত্বপ্রাপ্ত ব্যক্তি লেখা থাকে। Qualitative Analysis-এ সংখ্যা ছাড়াই High/Medium/Low দিয়ে রিস্ক প্রায়োরিটি ঠিক করা হয় — Probability × Impact ম্যাট্রিক্স ব্যবহার করে।</p>
+      </div>
+
+      <h2 class="sub" id="risk-response">5.5 Risk Response Strategies</h2>
+      <div class="grid2">
+        <div class="card">
+          <h4>Negative Risks (Threats)</h4>
+          <p style="margin:0;"><b>Avoid</b> — remove the cause<br><b>Mitigate</b> — reduce probability/impact<br><b>Transfer</b> — shift responsibility (insurance, cloud)<br><b>Accept</b> — keep a contingency reserve</p>
+        </div>
+        <div class="card">
+          <h4>Positive Risks (Opportunities)</h4>
+          <p style="margin:0;"><b>Exploit</b> — ensure it happens<br><b>Enhance</b> — increase probability/impact<br><b>Share</b> — partner with another org<br><b>Accept</b> — take advantage if it occurs</p>
+        </div>
+      </div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>নেগেটিভ রিস্কের জন্য ৪টি কৌশল: এড়ানো (Avoid), কমানো (Mitigate), স্থানান্তর করা (Transfer), মেনে নেওয়া (Accept)। পজিটিভ রিস্কের (সুযোগ) জন্য: কাজে লাগানো (Exploit), বাড়ানো (Enhance), ভাগাভাগি করা (Share), গ্রহণ করা (Accept)। এই ৮টি কৌশলের নাম ও উদাহরণ পরীক্ষায় প্রায়ই আসে।</p>
+      </div>
+
+      <h2 class="sub" id="risk-emv">5.6 Quantitative Analysis — EMV &amp; Decision Trees</h2>
+      <div class="formula">EMV (of an outcome) = Outcome value × Probability of that outcome</div>
+      <p>EMV of a decision = sum of the EMVs of all outcomes that follow from that decision. The branch with the higher EMV is generally preferred, balanced against the organization's risk tolerance.</p>
+      <div class="note">Other quantitative tools (conceptual level): <b>Monte Carlo simulation</b> — repeated sampling to estimate a range of schedule/cost outcomes; <b>Sensitivity analysis</b> — testing how much each risk factor influences the outcome.</div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>EMV (Expected Monetary Value) হিসাব করা হয় ফলাফলের মান × সেই ফলাফলের সম্ভাবনা দিয়ে। একাধিক সিদ্ধান্তের EMV তুলনা করে সবচেয়ে লাভজনক অপশন বাছাই করা হয় — একে বলে Decision Tree Analysis। Monte Carlo Simulation বারবার হিসাব চালিয়ে সম্ভাব্য ফলাফলের পরিসর অনুমান করে।</p>
+      </div>
+    </section>
+
+    <!-- ======================= 6. QUESTION BANK ======================= -->
+    <section class="topic" id="qbank">
+      <div class="topic-head">
+        <div class="topic-num">6</div>
+        <div>
+          <span class="eng-tag">Practice</span>
+          <h1>Exam Question Bank</h1>
+        </div>
+      </div>
+      <p>Compiled from Class Test 2 &amp; 3 (Summer 2026) and past Final Examinations. Ordered to match this note: Resource → Procurement → Communication/Stakeholder → Risk.</p>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>নিচের প্রশ্নগুলো আগের ক্লাস টেস্ট ও ফাইনাল পরীক্ষা থেকে নেওয়া, মডেল উত্তরসহ। প্রতিটি প্রশ্নের ধরন বুঝে অনুশীলন করলে পরীক্ষায় একই স্টাইলের যেকোনো কেস স্টাডি সহজে সমাধান করা যাবে।</p>
+      </div>
+
+      <h2 class="sub">6.1 Resource / Communication / Motivation — CT2</h2>
+      <div class="qcard">
+        <div class="qmeta">Scenario 44-C · Online Hospital Management System</div>
+        <h4>Q1. Identify 3 resource/communication problems (5 marks)</h4>
+        <ul>
+          <li>Shortage of skilled human resources — two engineers resigned</li>
+          <li>Developer overload — reduces productivity, threatens deadlines</li>
+          <li>Poor communication — irregular updates, unproductive meetings, rework</li>
+        </ul>
+        <h4>Q2. 3 HR planning actions (5 marks)</h4>
+        <ul>
+          <li>Hire/reassign qualified engineers to replace those who resigned</li>
+          <li>Redistribute workload based on skills, availability, responsibilities</li>
+          <li>Establish a clear HR/communication plan (roles, reporting, procedures)</li>
+        </ul>
+        <h4>Q3. Maslow-based motivation strategies (5 marks)</h4>
+        <ul>
+          <li>Safety — job security, reasonable workloads, supportive environment</li>
+          <li>Social — teamwork, regular communication, cooperation</li>
+          <li>Esteem/Self-Actualization — recognition, training, growth opportunities</li>
+        </ul>
+      </div>
+
+      <div class="qcard">
+        <div class="qmeta">Scenario 44-D · Online University Management System</div>
+        <h4>Q1. Communication Management Plan — 5 activities</h4>
+        <table>
+          <thead><tr><th>Activity</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>Weekly Client Progress Report</td><td>Regular updates on progress, tasks, issues, risks</td></tr>
+            <tr><td>Daily/Regular Team Meetings</td><td>Discuss progress, blockers, tasks</td></tr>
+            <tr><td>Developer–Analyst Meetings</td><td>Clear requirement understanding, reduce rework</td></tr>
+            <tr><td>Project Documentation</td><td>Maintain updated requirements &amp; records</td></tr>
+            <tr><td>Issue &amp; Decision Tracking</td><td>Record issues, decisions, owners, deadlines</td></tr>
+          </tbody>
+        </table>
+        <h4>Q2. Three Maslow motivational strategies</h4>
+        <ul>
+          <li>Safety — fair workload, realistic deadlines, job security assurance</li>
+          <li>Social — short meetings, dev-analyst collaboration, team-building</li>
+          <li>Esteem/Self-Actualization — recognize work, more responsibility, training</li>
+        </ul>
+      </div>
+
+      <h2 class="sub">6.2 Procurement &amp; Stakeholder Management — CT3</h2>
+      <div class="qcard">
+        <div class="qmeta">44-C Q1 · Five vendor-selection factors — e-commerce platform</div>
+        <table>
+          <thead><tr><th>Factor</th><th>Application</th></tr></thead>
+          <tbody>
+            <tr><td>Cost &amp; Pricing</td><td>Best value, not cheapest</td></tr>
+            <tr><td>Security &amp; Compliance</td><td>Critical for payment gateway &amp; security testing</td></tr>
+            <tr><td>Reliability &amp; Performance</td><td>Uptime, latency, SLAs — downtime = lost sales</td></tr>
+            <tr><td>Scalability &amp; Compatibility</td><td>Handles growth, integrates with existing systems</td></tr>
+            <tr><td>Vendor Reputation &amp; Support</td><td>Track record, fast support</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="qcard">
+        <div class="qmeta">44-C Q2 · Stakeholder Engagement Assessment — University LMS</div>
+        <table>
+          <thead><tr><th>Stakeholder</th><th>Power</th><th>Interest</th><th>Engagement</th></tr></thead>
+          <tbody>
+            <tr><td>University Management</td><td>High</td><td>High</td><td>Manage Closely</td></tr>
+            <tr><td>Software Vendor</td><td>High</td><td>High</td><td>Manage Closely</td></tr>
+            <tr><td>Development Team</td><td>High</td><td>High</td><td>Manage Closely</td></tr>
+            <tr><td>Faculty Members</td><td>Low</td><td>High</td><td>Keep Informed</td></tr>
+            <tr><td>Students</td><td>Low</td><td>High</td><td>Keep Informed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="qcard">
+        <div class="qmeta">44-D Q2 · TCO — Dedicated Server (5-year project)</div>
+        <div class="formula">TCO = Initial Purchase + Installation + (Maintenance × 5) + (Operating × 5) − Salvage Value</div>
+        <table>
+          <thead><tr><th></th><th>Option A</th><th>Option B</th></tr></thead>
+          <tbody>
+            <tr><td>TCO</td><td>1,900,000</td><td>1,430,000</td></tr>
+          </tbody>
+        </table>
+        <div class="note">Answer: Option B is better — saves Tk. 470,000 over 5 years.</div>
+      </div>
+
+      <h2 class="sub">6.3 Final-Exam-Style Integrated Case Questions</h2>
+      <p>These integrated case questions (adapted from past finals) test every topic together — typically 5–6 marks each. Practise structuring answers with the frameworks above.</p>
+      <div class="qcard">
+        <div class="qmeta">Practice question bank</div>
+        <ul>
+          <li>Select a project using strategic planning processes (given a case scenario)</li>
+          <li>Prescribe a stakeholders' management plan based on power–interest engagement</li>
+          <li>Using a named motivation theory, construct a motivational plan for the team</li>
+          <li>Compose a contract Statement of Work (SOW) for the project's suppliers</li>
+          <li>Produce 5 risks and perform a qualitative (Probability–Impact) analysis</li>
+          <li>Invent responses for the 5 worst risks (by largest impact)</li>
+          <li>Generate a communications management plan for the scenario</li>
+          <li>Rank risks high→low using a Probability–Impact Matrix, justifying the worst risk</li>
+          <li>Explain supplier-selection criteria appropriate to the given project</li>
+          <li>Lease-vs-Purchase break-even, and Cost-vs-Revenue break-even calculations</li>
+          <li>Propose five PM documents tied to five planning activities</li>
+        </ul>
+      </div>
+      <div class="bn-box">
+        <span class="tag">বাংলা ব্যাখ্যা</span>
+        <p>ফাইনাল পরীক্ষায় সাধারণত একটি বড় কেস স্টাডি দিয়ে একসাথে সব টপিক (স্টেকহোল্ডার, মোটিভেশন, প্রকিউরমেন্ট SOW, রিস্ক অ্যানালাইসিস, কমিউনিকেশন প্ল্যান) নিয়ে প্রশ্ন করা হয়। প্রতিটি সাব-প্রশ্নের জন্য উপরের ফ্রেমওয়ার্কগুলো (RACI, Power-Interest Grid, RBS, P-I Matrix, Weighted Scoring, TCO) সরাসরি প্রয়োগ করলেই উত্তর গোছানো যায়।</p>
+      </div>
+
+      <h3 class="subsub">Worked pattern — Lease vs Purchase break-even</h3>
+      <div class="formula">Lease Cost(t) = Down Payment + (Daily Lease Rate × t)</div>
+      <div class="formula">Purchase Cost(t) = Purchase Price + (Daily Operating Cost × t) − Resale Value</div>
+      <div class="note">Set the two expressions equal and solve for t — the day the two cost lines cross.</div>
+
+      <h3 class="subsub">Worked pattern — Cost vs Revenue Break-even</h3>
+      <div class="formula">Total Cost = Fixed Cost + (Variable Cost/unit × Units)</div>
+      <div class="formula">Total Revenue = Price/unit × Units &nbsp;·&nbsp; Profit = Revenue − Cost</div>
+      <p>Example: Fixed cost $50,000/month, variable cost $5/subscription, price $15/subscription. At 3,000 subscriptions → Revenue 45,000, Cost = 65,000 → Loss of 20,000. Recompute for 2,000 subscriptions to compare.</p>
+    </section>
+
+    <footer>
+      SE411 — Software Project Management &amp; Documentation · Daffodil International University · Department of Software Engineering<br>
+      Compiled revision note with Bangla explanations · প্রস্তুতকারক: SE411 রিভিশন নোট (বাংলা ব্যাখ্যাসহ)
+    </footer>
+  </main>
+</div>
+</body>
+</html>
