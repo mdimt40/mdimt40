@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mdimt40.github.io/sitemap.xml
+Sitemap: https://mdimtiaz.dev/sitemap.xml
